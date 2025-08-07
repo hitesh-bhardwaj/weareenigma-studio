@@ -1,9 +1,11 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
+import { TagIcon } from '@sanity/icons'
 
-export default defineType({
-  name: 'category',
-  title: 'Category',
+export const careersCategory = defineType({
+  name: 'careersCategory',
+  title: 'Careers Category',
   type: 'document',
+  icon: TagIcon,
   fields: [
     defineField({
       name: 'title',
@@ -17,3 +19,4 @@ export default defineType({
     }),
   ],
 })
+    
