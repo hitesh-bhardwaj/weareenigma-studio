@@ -74,7 +74,7 @@ export const postType = defineType({
     defineField({
       name: 'excerpt',
       type: 'string',
-      hidden: ({ parent }) => !parent?.featured, // Conditional field visibility
+      hidden: ({ parent }) => !parent?.featured,
     }),
     defineField({
       name: 'categories',
@@ -93,12 +93,15 @@ export const postType = defineType({
   preview: {
     select: {
       title: 'title',
-      author: 'author.name', // ✅ Fetch author's name from the reference
+      author0: 'author.0.name', // Get first author's name
       media: 'mainImage',
     },
     prepare(selection) {
-      const { author } = selection;
-      return { ...selection, subtitle: author ? `by ${author}` : "No author" };
+      const { author0 } = selection;
+      return { 
+        ...selection, 
+        subtitle: author0 ? `by ${author0}` : "No author" 
+      };
     },
   },
 });
